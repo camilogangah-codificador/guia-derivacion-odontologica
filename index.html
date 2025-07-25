@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Derivación Odontológica</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.05) 10px,
+                rgba(255,255,255,0.05) 20px
+            );
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateX(-50%) translateY(-50%) rotate(0deg); }
+            100% { transform: translateX(-50%) translateY(-50%) rotate(360deg); }
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .main-content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .section-header {
+            padding: 20px;
+            color: white;
+            font-weight: bold;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .general { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+        .protesis-removible { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
+        .protesis-fija { background: linear-gradient(135deg, #34495e, #2c3e50); }
+        .endodoncia { background: linear-gradient(135deg, #e67e22, #d35400); }
+        .odontopediatria { background: linear-gradient(135deg, #f39c12, #e67e22); }
+        .periodoncia { background: linear-gradient(135deg, #27ae60, #2ecc71); }
+        .patologia { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+        .ttm { background: linear-gradient(135deg, #3498db, #2980b9); }
+        .ortodoncia { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
+        .hospital-digital { background: linear-gradient(135deg, #1abc9c, #16a085); }
+        .tiempos { background: linear-gradient(135deg, #95a5a6, #7f8c8d); }
+
+        .section-content {
+            background: white;
+            padding: 25px;
+        }
+
+        .criteria-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .criteria-card {
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 5px solid;
+        }
+
+        .inclusion {
+            background: linear-gradient(135deg, #d5f4e6, #e8f8f5);
+            border-color: #27ae60;
+        }
+
+        .exclusion {
+            background: linear-gradient(135deg, #fadbd8, #f5eef8);
+            border-color: #e74c3c;
+        }
+
+        .priority {
+            background: linear-gradient(135deg, #fef9e7, #fcf3cf);
+            border-color: #f39c12;
+        }
+
+        .criteria-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .criteria-list {
+            list-style: none;
+        }
+
+        .criteria-list li {
+            margin-bottom: 8px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .criteria-list li::before {
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .inclusion li::before { content: "✅"; }
+        .exclusion li::before { content: "❌"; }
+        .priority li::before { content: "🔥"; }
+
+        .priority-alta { color: #e74c3c; font-weight: bold; }
+        .priority-media { color: #f39c12; font-weight: bold; }
+        .priority-baja { color: #27ae60; font-weight: bold; }
+
+        .alert-box {
+            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+            border: 1px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid #f39c12;
+        }
+
+        .alert-title {
+            font-weight: bold;
+            color: #856404;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .emergency-box {
+            background: linear-gradient(135deg, #f8d7da, #f5c6cb);
+            border: 1px solid #f5c6cb;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid #dc3545;
+            animation: pulse-box 3s infinite;
+        }
+
+        @keyframes pulse-box {
+            0% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7); }
+            50% { box-shadow: 0 0 0 10px rgba(220, 53, 69, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0); }
+        }
+
+        .emergency-title {
+            font-weight: bold;
+            color: #721c24;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .table th {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .table tr:hover {
+            background: #e3f2fd;
+            transition: background 0.3s ease;
+        }
+
+        .icon {
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin: 2px;
+        }
+
+        .badge-alta { background: #e74c3c; }
+        .badge-media { background: #f39c12; }
+        .badge-baja { background: #27ae60; }
+        .badge-urgente { 
+            background: #8e44ad; 
+            animation: pulse 2s infinite; 
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.05); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .specialties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .criteria-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .main-content {
+                padding: 20px;
+            }
+
+            .specialties-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .quick-ref {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .quick-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            border: 2px solid #dee2e6;
+            transition: all 0.3s ease;
+        }
+
+        .quick-card:hover {
+            transform: translateY(-3px);
+            border-color: #3498db;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .quick-card h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .quick-card p {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🦷 GUÍA DE DERIVACIÓN ODONTOLÓGICA</h1>
+            <p>Criterios y Protocolos de Referencia por Especialidad</p>
+            <p style="font-size: 1rem; opacity: 0.8; margin-top: 10px;">
+                <strong>Elaborado por:</strong> Odontólogo Camilo Ganga Hernández - APS Huechuraba
+            </p>
+        </div>
+
+        <div class="main-content">
+            <!-- CONDICIONES GENERALES -->
+            <div class="section">
+                <div class="section-header general">
+                    <span class="icon">📋</span>
+                    CONDICIONES GENERALES OBLIGATORIAS
+                </div>
+                <div class="section-content">
+                    <div class="criteria-grid">
+                        <div class="criteria-card inclusion">
+                            <div class="criteria-title">
+                                <span>✅</span> ALTA ODONTOLÓGICA APS COMPLETA
+                            </div>
+                            <ul class="criteria-list">
+                                <li><span class="highlight">Sin caries</span> no tratadas (verificar con Rx Bite Wing)</li>
+                                <li><span class="highlight">Sin enfermedad periodontal</span> activa</li>
+                                <li><span class="highlight">Buen control de higiene</span> oral (IHO-S 0-1.0)</li>
+                                <li><span class="highlight">Sin TTM</span> o dolor orofacial</li>
+                                <li><span class="highlight">Sin lesiones</span> en mucosa y tejidos blandos</li>
+                            </ul>
+                        </div>
+                        <div class="criteria-card exclusion">
+                            <div class="criteria-title">
+                                <span>🚫</span> EXCLUSIONES GENERALES
+                            </div>
+                            <ul class="criteria-list">
+                                <li>Enfermedades de base <span class="highlight">no controladas</span> (HTA, DM, Epilepsia)</li>
+                                <li>Pacientes <span class="highlight">postrados</span> o con deterioro cognitivo severo</li>
+                                <li>Sin <span class="highlight">red de apoyo</span> (pacientes especiales)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="alert-box">
+                        <div class="alert-title">
+                            <span>📄</span> DOCUMENTACIÓN REQUERIDA
+                        </div>
+                        <div class="quick-ref">
+                            <div class="quick-card">
+                                <h4>📝 SIC Completa</h4>
+                                <p>Con fundamento clínico detallado</p>
+                            </div>
+                            <div class="quick-card">
+                                <h4>📸 Radiografías</h4>
+                                <p>Pertinentes al caso</p>
+                            </div>
+                            <div class="quick-card">
+                                <h4>🏥 Certificados</h4>
+                                <p>Médicos para casos especiales</p>
+                            </div>
+                            <div class="quick-card">
+                                <h4>💳 FONASA</h4>
+                                <p>Carnet vigente</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESPECIALIDADES -->
+            <div class="specialties-grid">
+                <!-- PRÓTESIS REMOVIBLE -->
+                <div class="section">
+                    <div class="section-header protesis-removible">
+                        <span class="icon">🦷</span>
+                        PRÓTESIS REMOVIBLE
+                    </div>
+                    <div class="section-content">
+                        <div class="criteria-card inclusion">
+                            <div class="criteria-title">✅ INCLUSIÓN</div>
+                            <ul class="criteria-list">
+                                <li>Desdentados totales</li>
+                                <li>Desdentados parciales</li>
+                                <li>Trauma estético (premolar-premolar)</li>
+                                <li>Estomatitis sub-prótesis grado 2-3</li>
+                                <li>Comunicación bucosinusal</li>
+                                <li>GES: Embarazadas y 60 años</li>
+                            </ul>
+                        </div>
+                        <div class="criteria-card exclusion">
+                            <div class="criteria-title">❌ EXCLUSIÓN</div>
+                            <ul class="criteria-list">
+                                <li>Pérdida de 1 sola pieza posterior</li>
+                                <li>Pérdida de dos piezas posteriores de distintas hemiarcadas</li>
+                                <li>Reemplazo exclusivo de segundos o terceros molares</li>
+                                <li>Restos radiculares, caries, tártaro</li>
+                            </ul>
+                        </div>
+                        <div class="criteria-card priority">
+                            <div class="criteria-title">🔥 PRIORIDADES</div>
+                            <p><span class="badge badge-alta">ALTA</span> Desnutrición por dificultad masticatoria (certificado nutricionista/médico), reparación prótesis, comunicación bucosinusal, desdentados totales sin prótesis, compromiso estético sector anterior</p>
+                            <p><span class="badge badge-media">MEDIA</span> Desdentados totales, estomatitis subprotésica tipo 2-3, cirugía preprotética</p>
+                            <p><span class="badge badge-baja">BAJA</span> Otros casos no incluidos arriba</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRÓTESIS FIJA -->
+                <div class="section">
+                    <div class="section-header protesis-fija">
+                        <span class="icon">🔧</span>
+                        PRÓTESIS FIJA
+                    </div>
+                    <div class="section-content">
+                        <div class="criteria-card inclusion">
+                            <div class="criteria-title">✅ INCLUSIÓN</div>
+                            <ul class="criteria-list">
+                                <li><strong>Unitaria:</strong> 1er molar hacia mesial, proporción corono-radicular ≥1:1</li>
+                                <li>Premolares ausentes >15 años</li>
+                                <li>1ros molares ausentes >18 años (dentados totales hacia mesial)</li>
+                                <li><strong>Plural:</strong> Incisivos, caninos, premolares</li>
+                                <li>Hasta 1er molar como pilar, 2 pilares + 1 intermediario</li>
+                            </ul>
+                        </div>
+                        <div class="criteria-card exclusion">
+                            <div class="criteria-title">❌ EXCLUSIÓN</div>
+                            <ul class="criteria-list">
+                                <li>Fracaso operatorio, desalojo constante</li>
+                                <li>Sin tratamiento endodóntico realizado</li>
+                                <li>Sin Rx ni evaluación clínica apropiada</li>
+                            </ul>
+                        </div>
+                        <div class="criteria-card priority">
+                            <div class="criteria-title">🔥 PRIORIDADES</div>
+                            <p><span class="badge badge-alta">ALTA</span> Dientes anteriores con pérdida >2/3 corona, coronas desalojadas, VIF, secuelas intubación</p>
+                            <p><span class="badge badge-media">MEDIA</span> Dientes anteriores restaurados provisoriamente <2/3 pérdida</p>
+                            <p><span class="badge badge-baja">BAJA</span> Otros casos no incluidos arriba</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IMPLANTOLOGÍA -->
+                <div class="section">
+                    <div class="section-header protesis-removible">
+                        <span class="icon">⚙️</span>
+                        IMPLANTOLOGÍA
+                    </div>
+                    <div class="section-content">
+                        <div class="criteria-card inclusion">
+                            <div class="criteria-title">✅ INCLUSIÓN</div>
+                            <ul class="criteria-list">
+                                <li>Paciente >18 años</li>
+                                <li>Máximo 2 implantes para 4 dientes</li>
+                                <li>Desdentado Clase I-II Kennedy corta (hasta 2do premolar)</li>
+                                <li>Desdentado Clase III Kennedy (hasta 2 subdivisiones)</li>
+                                <li>Desdentado Clase IV Kennedy</li>
+                                <li>Desdentado total mandibular</li>
+                                <li>Premolares estéticos ausentes, ausencia 1er molar</li>
+                            </ul>
+                        </div>
+                        <div class="criteria-card exclusion">
+                            <div class="criteria-title">❌ EXCLUSIÓN</div>
+                            <ul class="criteria-list">
+                                <li>Pacientes <18 años</li>
+                                <li>2dos y 3ros molares</li>
+                                <li>Contraindicación cirugía oral</li>
+                                <li>Bruxismo severo, inestabilidad oclusal</li>
+                                <li>Bifosfonatos, patología ósea en sitio implante</li>
+                                <li>Proceso inflamatorio dental en grupo a tratar</li>
+                            </ul>
+                        </div>
+                        <div class="criteria-card priority">
+                            <div class="criteria-title">🔥 PRIORIDADES</div>
+                            <p><span class="badge badge-alta">ALTA</span> TDA ≥18 años, ausencia anterior sin prótesis, desdentado total con reabsorción severa sin prótesis</p>
+                            <p><span class="badge badge-media">MEDIA</span> Ausencia anterior con prótesis, desdentado total con reabsorción moderada con prótesis</p>
+                            <p><span class="badge badge-baja">BAJA</span> Ausencia premolares</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ENDODONCIA -->
+                <div class="section">
+                    <div class="section-header endodoncia">
+                        <span class="icon">🔍</span>
+                        ENDODONCIA
+                    </div>
+                    <div class="section-content">
+                        <div class="criteria-card inclusion">
+                            <div class="criteria-title">✅ INCLUSIÓN</div>
+                            <ul class="criteria-list">
+                                <li>Diente permanente y/o permanente joven</li>
+                                <li>Diente con TDA</li>
+                                <li>Diente con reabsorción radicular</li>
+                                <li>Perforación al periodonto o instrumento fracturado</li>
+                                <li>Indicación médica que contraindique extracción</li>
+                                <li>Indicación protésica de endodoncia</li>
+                                <li>Retratamiento endodóntico</li>
+                            </ul>
+                        </div>
+                        <div class="criteria-card exclusion">
+                            <div class="criteria-title">❌ EXCLUSIÓN</div>
+                            <ul class="criteria-list">
+                                <li>Extensa destrucción coronaria</li>
+                                <li>Enfermedad periodontal avanzada</li>
+                                <li>Fractura radicular vertical</li>
+                            </ul>
+                        </div>
+                        <div class="criteria-card priority">
+                            <div class="criteria-title">🔥 PRIORIDADES</div>
+                            <p><span class="badge badge-alta">ALTA</span> 2+ cuadros infecciosos con ATB, perforación periodonto, TDA, permanente joven irreversible, pase médico quirúrgico</p>
+                            <p><span class="badge badge-media">MEDIA</span> Necesidad rehabilitación con PFU</p>
+                            <p><span class="badge badge-baja">BAJA</span> Otros casos no incluidos arriba</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ODONTOPEDIATRÍA -->
+                <div class="section">
+                    <div class="section-header odontopediatria">
+                        <span class="icon">👶</span>
+                        ODONTOPEDIATRÍA
+                    </div>
+                    <div class="section-content">
+                        <div class="criteria-card inclusion">
+                            <div class="criteria-title">✅ INCLUSIÓN</div>
+                            <ul class="criteria-list">
+                                <li>1-15 años con difícil manejo</li>
+                                <li>Trastorno neurológico, Sd. Down</li>
+                                <li>Traumatismo dentoalveolar</li>
+                                <li>Seguro escolar post-urgencia</li>
+                                <li>Enfermedad sistémica</li>
+                            </ul>
+                        </div>
+                        <div class="criteria-card exclusion">
+                            <div class="criteria-title">❌ EXCLUSIÓN</div>
+                            <ul class="criteria-list">
+                                <li>Daño neurológico severo (sedación total)</li>
+                                <li>Sin problemas de adaptación</li>
+                                <li>Autismo severo de nulo manejo ambulatorio</li>
+                            </ul>
+                        </div>
+                        <div class="criteria-card priority">
+                            <div class="criteria-title">🔥 PRIORIDADES</div>
+                            <p><span class="badge badge-alta">ALTA</span> Trauma agudo, dolor severo</p>
+                            <p><span class="badge badge-media">MEDIA</span> Necesidades especiales</p>
+                            <p><span class="badge badge-baja">BAJA</span> Tratamiento integral</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PERIODONCIA -->
+                <div class="section">
+                    <div class="section-header periodoncia">
+                        <span class="icon">🫧</span>
+                        PERIODONCIA
+                    </div>
+                    <div class="section-content">
+                        <div class="criteria-card inclusion">
+                            <div class="criteria-title">✅ INCLUSIÓN</div>
+                            <ul class="criteria-list">
+                                <li>Gingivitis no inducida por biofilm dental</li>
+                                <li>EPB código 3 en adelante</li>
+                                <li>Anormalidades mucogingivales</li>
+                                <li>Enfermedades periodontales necrosantes</li>
+                                <li>Periodontitis como manifestación de enfermedades sistémicas</li>
+                                <li>GES embarazadas con EPB 3-4 (SIGGES)</li>
+                                <li>Periimplantitis</li>
+                            </ul>
+                        </div>
+                        <div class="criteria-card exclusion">
+                            <div class="criteria-title">❌ EXCLUSIÓN</div>
+                            <ul class="criteria-list">
+                                <li>Gingivitis inducida por biofilm dental</li>
+                                <li>EPB 1 o 2</li>
+                                <li>EPB 3-4 sin previo control factores locales</li>
+                                <li>Patología articular/muscular dolorosa o bruxismo</li>
+                                <li>Mucositis periimplantaria</li>
+                            </ul>
+                        </div>
+                        <div class="criteria-card priority">
+                            <div class="criteria-title">🔥 PRIORIDADES</div>
+                            <p><span class="badge badge-alta">ALTA</span> Cáncer con terapia oncológica activa, recidiva abscesos periodontales, enfermedades necrosantes, <35 años EPB 4, EPB 4 con factor riesgo, pase médico</p>
+                            <p><span class="badge badge-baja">BAJA</span> Otros casos no incluidos arriba</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PATOLOGÍA ORAL -->
+                <div class="section">
+                    <div class="section-header patologia">
+                        <span class="icon">🔬</span>
+                        PATOLOGÍA ORAL
+                    </div>
+                    <div class="section-content">
+                        <div class="criteria-card inclusion">
+                            <div class="criteria-title">✅ INCLUSIÓN</div>
+                            <ul class="criteria-list">
+                                <li>Todas las patologías CIE-10</li>
+                                <li>Orden de antigüedad estricto</li>
+                                <li>Exceptuando sospecha de cáncer</li>
+                            </ul>
+                        </div>
+                        <div class="criteria-card exclusion">
+                            <div class="criteria-title">❌ EXCLUSIÓN</div>
+                            <ul class="criteria-list">
+                                <li>Úlcera traumática aguda</li>
+                                <li>Aftas menores no recurrentes</li>
+                                <li>Estomatitis herpética primaria</li>
+                            </ul>
+                        </div>
+                        <div class="criteria-card priority">
+                            <div class="criteria-title">🔥 PRIORIDADES</div>
+                            <p><span class="badge badge-urgente">URGENTE</span> SOSPECHA CÁNCER (SIDRA 24h)</p>
+                            <p><span class="badge badge-alta">P1</span> Dolor EVA >4, lesiones funcionales</p>
+                            <p><span class="badge badge-media">P2</span> Desórdenes potencialmente malignos</p>
+                            <p><span class="badge badge-baja">P3</span> Variaciones normalidad</p>
+                        </div>
+                        
+                        <div class="emergency-box">
+                            <div class="emergency-title">
+                                <span>🚨</span> SOSPECHA DE CÁNCER
+                            </div>
+                            <p><strong>SIEMPRE SIDRA URGENTE 24 HORAS</strong> - Nunca Hospital Digital</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TTM -->
+                <div class="section">
+                    <div class="section-header ttm">
+                        <span class="icon">🦷</span>
+                        TTM Y DOLOR OROFACIAL
+                    </div>
+                    <div class="section-content">
+                        <div class="criteria-card inclusion">
+                            <div class="criteria-title">✅ INCLUSIÓN</div>
+                            <ul class="criteria-list">
+                                <li>Dolor ATM, temporal y/o maseterino</li>
+                                <li>Dificultad o limitación del movimiento mandibular</li>
+                                <li>Ruidos articulares sintomáticos</li>
+                                <li>Crepito articular</li>
+                                <li>Bloqueo mandibular abierto a repetición</li>
+                                <li>Dolor orofacial neuropático</li>
+                                <li>Dolor orofacial tipo cefalea</li>
+                                <li>Movimientos mandibulares o de la musculatura facial anormales</li>
+                            </ul>
+                        </div>
+                        <div class="criteria-card exclusion">
+                            <div class="criteria-title">❌ EXCLUSIÓN</div>
+                            <ul class="criteria-list">
+                                <li>Alteraciones psiquiátricas</li>
+                                <li>Odontalgia</li>
+                            </ul>
+                        </div>
+                        <div class="criteria-card priority">
+                            <div class="criteria-title">🔥 PRIORIDADES</div>
+                            <p><span class="badge badge-alta">ALTA</span> Dolor orofacial neuropático, apertura máxima <20mm interincisal con evolución <2 meses</p>
+                            <p><span class="badge badge-media">MEDIA/BAJA</span> Resto de diagnósticos indicados en criterios de inclusión</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ORTODONCIA -->
+                <div class="section">
+                    <div class="section-header ortodoncia">
+                        <span class="icon">🦷</span>
+                        ORTODONCIA
+                    </div>
+                    <div class="section-content">
+                        <div class="criteria-card inclusion">
+                            <div class="criteria-title">✅ INCLUSIÓN</div>
+                            <ul class="criteria-list">
+                                <li>Hasta 12 años 11 meses 29 días</li>
+                                <li>Dentición mixta segunda fase</li>
+                                <li>Criterios GRCO cumplidos y adjuntos a SIC</li>
+                                <li>Sin caries, sin enfermedad periodontal</li>
+                                <li>Buen control placa bacteriana</li>
+                            </ul>
+                        </div>
+                        <div class="criteria-card exclusion">
+                            <div class="criteria-title">❌ EXCLUSIÓN</div>
+                            <ul class="criteria-list">
+                                <li>Mayores de 12 años 11 meses 29 días</li>
+                                <li>Caries activas</li>
+                                <li>Enfermedad periodontal</li>
+                                <li>IHO-S >1.0</li>
+                                <li>Sin controles odontológicos al día</li>
+                            </ul>
+                        </div>
+                        <div class="criteria-card priority">
+                            <div class="criteria-title">🔥 PRIORIDADES</div>
+                            <p><span class="badge badge-alta">ALTA</span> Mordida cruzada anterior o invertida, mordida cruzada posterior unilateral/bilateral en dentición mixta 1ra fase, dientes incluidos/retenidos, dientes supernumerarios</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HOSPITAL DIGITAL -->
+            <div class="section">
+                <div class="section-header hospital-digital">
+                    <span class="icon">💻</span>
+                    HOSPITAL DIGITAL
+                </div>
+                <div class="section-content">
+                    <div class="alert-box">
+                        <div class="alert-title">
+                            <span>⚠️</span> REQUISITO CRÍTICO
+                        </div>
+                        <p><strong>ANTES</strong> de derivar por SIDRA a Patología/TTM → <span class="highlight">OBLIGATORIO</span> consultar Hospital Digital primero</p>
+                    </div>
+                    
+                    <div class="criteria-grid">
+                        <div class="criteria-card inclusion">
+                            <div class="criteria-title">✅ PATOLOGÍA ORAL Y TTM</div>
+                            <ul class="criteria-list">
+                                <li><span class="highlight">Consentimiento informado</span> obligatorio</li>
+                                <li>Autorización registrada en formulario digital</li>
+                            </ul>
+                        </div>
+                        <div class="criteria-card exclusion">
+                            <div class="criteria-title">🚫 SIN CONSENTIMIENTO</div>
+                            <ul class="criteria-list">
+                                <li>Usar <span class="highlight">SIDRA</span> obligatoriamente</li>
+                                <li><span class="highlight">Sospecha cáncer</span> → SIEMPRE SIDRA urgente</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FLUJO BÁSICO DE DERIVACIÓN -->
+            <div class="section">
+                <div class="section-header tiempos">
+                    <span class="icon">🔄</span>
+                    FLUJO BÁSICO DE DERIVACIÓN
+                </div>
+                <div class="section-content">
+                    <div class="flow-container">
+                        <div class="flow-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h3>📝 EMISIÓN SIC</h3>
+                                <div class="step-card">
+                                    <p>Odontólogo APS genera <span class="highlight">Solicitud de Interconsulta</span> con datos completos y fundamento clínico</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flow-arrow">↓</div>
+
+                        <div class="flow-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h3>🔍 TRIAJE</h3>
+                                <div class="step-card">
+                                    <p>Evaluación de <span class="highlight">pertinencia y prioridad</span> según criterios establecidos</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flow-arrow">↓</div>
+
+                        <div class="flow-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h3>🏥 ATENCIÓN ESPECIALIZADA</h3>
+                                <div class="step-card">
+                                    <p>Consulta, diagnóstico, tratamiento y <span class="highlight">contrarreferencia</span> a APS</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CASOS ESPECIALES -->
+                    <div class="alert-box">
+                        <div class="alert-title">
+                            <span>⚠️</span> CASOS ESPECIALES
+                        </div>
+                        <div class="special-cases-grid">
+                            <div class="special-case">
+                                <h4>🚨 SOSPECHA DE CÁNCER</h4>
+                                <p><strong>SIDRA URGENTE 24 HORAS</strong></p>
+                            </div>
+                            <div class="special-case">
+                                <h4>💻 HOSPITAL DIGITAL</h4>
+                                <p>Consultar HD ANTES de SIDRA (Patología/TTM)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RECORDATORIOS CRÍTICOS -->
+            <div class="emergency-box">
+                <div class="emergency-title">
+                    <span>🚨</span> RECORDATORIOS CRÍTICOS
+                </div>
+                <ol style="padding-left: 20px; line-height: 1.6;">
+                    <li><strong>Hospital Digital:</strong> Consultar ANTES que SIDRA para Patología/TTM</li>
+                    <li><strong>Sospecha cáncer:</strong> SIEMPRE SIDRA urgente 24h</li>
+                    <li><strong>Alta APS:</strong> Prerequisito ABSOLUTO para todas las especialidades</li>
+                    <li><strong>GES:</strong> Criterios específicos adicionales por Guías Clínicas</li>
+                    <li><strong>Compensación médica:</strong> OBLIGATORIA antes de derivar enfermedades no controladas</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .flow-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .flow-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-content h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .step-details {
+            margin-top: 10px;
+        }
+
+        .step-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 4px solid #3498db;
+            margin-bottom: 10px;
+        }
+
+        .step-card h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .step-card ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .step-card li {
+            margin-bottom: 5px;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .step-card li::before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-size: 0.8rem;
+        }
+
+        .step-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .flow-arrow {
+            font-size: 2rem;
+            color: #3498db;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .special-cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .special-case {
+            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+            border-radius: 8px;
+            padding: 15px;
+            border-left: 4px solid #f39c12;
+        }
+
+        .special-case h4 {
+            color: #856404;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .special-case p {
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .responsibilities-section {
+            margin-top: 30px;
+        }
+
+        .responsibilities-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .responsibility-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .resp-header {
+            padding: 15px;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .nivel-aps {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+        }
+
+        .nivel-secundario {
+            background: linear-gradient(135deg, #8e44ad, #9b59b6);
+        }
+
+        .responsibility-card ul {
+            background: white;
+            padding: 20px;
+            margin: 0;
+            list-style: none;
+        }
+
+        .responsibility-card li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .responsibility-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .badge-exclusion {
+            background: #e74c3c;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .step-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .responsibilities-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .special-cases-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .flow-step {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+    </style>
+</body>
+</html>
+                                
